@@ -18,3 +18,21 @@ function loadPromotions() {
         ])
     ]
 }
+
+function loadItemsRepo() {
+    var items = loadAllItems();
+    var itemsRepo = {};
+    for (var i = 0; i < items.length; i++) {
+        itemsRepo[items[i].barcode] = items[i];
+    }
+    return itemsRepo;
+};
+
+function loadPromotionsRepo() {
+    var promotions = loadPromotions();
+    var promotionsRepo = {};
+    for (var i = 0; i < promotions.length; i++) {
+        promotionsRepo[promotions[i].type] = promotions[i].barcodes;
+    }
+    return promotionsRepo;
+};
